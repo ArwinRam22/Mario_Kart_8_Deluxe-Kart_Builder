@@ -43,7 +43,7 @@ public class statPane extends JPanel {
     public statPane(String pane) {
         setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
  
-        JPanel rightHalf = new JPanel() 
+        JPanel createStatPane = new JPanel()
         {
             //Don't allow us to stretch vertically.
             public Dimension getMaximumSize()
@@ -51,15 +51,14 @@ public class statPane extends JPanel {
                 return new Dimension(Integer.MAX_VALUE, Integer.MAX_VALUE);
             }
         };
-        rightHalf.setLayout(new BoxLayout(rightHalf, BoxLayout.PAGE_AXIS));
+        createStatPane.setLayout(new BoxLayout(createStatPane, BoxLayout.PAGE_AXIS));
         if (pane.equals("individual"))
-            rightHalf.add(createStatFields());
+            createStatPane.add(createStatFields());
         else
-            rightHalf.add(createStatBars());
+            createStatPane.add(createStatBars());
 
-        rightHalf.setBackground(Color.WHITE);
-        // add(leftHalf);
-        add(rightHalf);
+        createStatPane.setBackground(Color.WHITE);
+        add(createStatPane);
     }
 
     protected JComponent createStatFields()
